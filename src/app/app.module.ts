@@ -7,6 +7,8 @@ import { LoginFormComponent } from './components/main-body/login-form/login-form
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainBodyComponent } from './components/main-body/main-body.component';
+import { SharedComponent } from './components/shared/shared.component';
+import { ErrorsComponent } from './components/shared/errors/errors.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { MainBodyComponent } from './components/main-body/main-body.component';
     FooterComponent,
     HeaderComponent,
     MainBodyComponent,
+    SharedComponent,
+    ErrorsComponent,
   ],
   imports: [
     BrowserModule,

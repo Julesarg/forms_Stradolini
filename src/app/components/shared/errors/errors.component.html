@@ -1,0 +1,14 @@
+<small>
+  <div *ngFor="let error of control?.errors | keyvalue">
+
+    <div [ngSwitch]="error.key">
+      <div class="errorOn" *ngSwitchCase="'required'"></div>
+      <div class="errorOn" *ngSwitchCase="'minlength'">Minimo de {{error.value.requiredLength | json}}
+        caracteres</div>
+      <div class="errorOn" *ngSwitchCase="'pattern'">Ingrese caracteres validos</div>
+      <div class="errorOn" *ngSwitchCase="'email'">Ingrese un correo valido</div>
+      <div *ngSwitchDefault></div>
+    </div>
+
+  </div>
+</small>

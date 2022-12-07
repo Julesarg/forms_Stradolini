@@ -1,27 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.scss']
+  styleUrls: ['./register-form.component.scss'],
 })
+export class RegisterFormComponent {
+  firstNameControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+    Validators.pattern('[a-zA-Z ]*'),
+  ]);
+  lastNameControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern('[a-zA-Z ]*'),
+  ]);
+  emailControl = new FormControl('', [Validators.required, Validators.email]);
+  passwordControl = new FormControl('', [
+    Validators.required,
+    Validators.minLength(5),
+  ]);
+  repeatPasswordControl = new FormControl('', [Validators.required]);
 
-export class RegisterFormComponent implements OnInit {
+  registerForm = new FormGroup({
+    firstName: this.firstNameControl,
+    lastName: this.lastNameControl,
+    email: this.emailControl,
+    password: this.passwordControl,
+    repeatPassword: this.repeatPasswordControl
+  },
+    {
+      validators: [
+        this.noFunciona
+      ]
+    }
+  );
 
-  public registerForm: FormGroup;
+  //functions
 
-  constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      nombre: ['Mateo'],
-      email: [''],
-      mensaje: ['Este es mi mensaje de prueba']
-    });
-  }
-
-  ngOnInit(): void {
-    
+  noFunciona() {
+    return () => {
+      if (this.passwordControl.value !== this.repeatPasswordControl.value) {
+        return {
+          passwordCompare: true
+        }
+      }
+      return null
+    }
   }
 }
-
-//editar por aca!
