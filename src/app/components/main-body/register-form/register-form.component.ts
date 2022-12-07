@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -32,7 +32,7 @@ export class RegisterFormComponent {
   },
     {
       validators: [
-        this.noFunciona
+        this.noFunciona()
       ]
     }
   );

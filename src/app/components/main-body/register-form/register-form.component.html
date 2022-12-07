@@ -31,8 +31,8 @@
         </div>
 
         <div class="col d-flex flex-column justify-content-start align-items-start">
-          <label for="name" class="form-label">Apellido</label>
-          <input [formControl]="lastNameControl" type="text" class="form-control" id="name" />
+          <label for="lastname" class="form-label">Apellido</label>
+          <input [formControl]="lastNameControl" type="text" class="form-control" id="lastname" />
           <app-errors [control]="lastNameControl"></app-errors>
         </div>
       </div>
@@ -56,12 +56,14 @@
       <div class="d-flex form-control-added">
         <div class="col d-flex flex-column justify-content-start align-items-start">
           <label for="password" class="form-label">Repetir contraseña</label>
-          <input [formControl]="repeatPasswordControl" type="password" class="form-control" id="password" />
+          <input [formControl]="repeatPasswordControl" type="password" class="form-control" id="repeatPassword" />
+          <app-errors [control]="repeatPasswordControl"></app-errors>
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+      <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Crear Cuenta</button>
     </form>
-    {{registerForm.valid | json}}
   </div>
 </div>
+
+{{registerForm.value | json}}

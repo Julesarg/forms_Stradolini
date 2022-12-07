@@ -8,5 +8,5 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ErrorsComponent {
   @Input()
-  control: FormControl | undefined
+  control: FormControl | FormGroup | undefined
 }
