@@ -58,6 +58,8 @@
           <label for="password" class="form-label">Repetir contraseña</label>
           <input [formControl]="repeatPasswordControl" type="password" class="form-control" id="repeatPassword" />
           <app-errors [control]="repeatPasswordControl"></app-errors>
+          <small class="text-danger" *ngIf="registerForm.errors">Su contraseña no
+            coincide</small>
         </div>
       </div>
 
@@ -65,5 +67,3 @@
     </form>
   </div>
 </div>
-
-{{registerForm.value | json}}

@@ -32,14 +32,14 @@ export class RegisterFormComponent {
   },
     {
       validators: [
-        this.noFunciona()
+        this.comparePasswords()
       ]
     }
   );
 
   //functions
 
-  noFunciona() {
+  comparePasswords() {
     return () => {
       if (this.passwordControl.value !== this.repeatPasswordControl.value) {
         return {

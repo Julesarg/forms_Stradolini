@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-errors',
@@ -8,5 +8,5 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ErrorsComponent {
   @Input()
-  control: FormControl | FormGroup | undefined
+  control: FormControl | undefined
 }
